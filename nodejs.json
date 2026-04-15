@@ -1,0 +1,11 @@
+{
+  "rke143Data": {
+    "name": "Node.js",
+    "description": "Node.js is an open-source server-side runtime.",
+    "key_features": [
+      "Event-driven",
+      "Non-blocking I/O",
+      "Fast and scalable"
+    ]
+  }
+}

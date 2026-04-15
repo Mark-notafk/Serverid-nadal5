@@ -1,3 +1,6 @@
+const PORT = process.env.PORT || 3000;
+const fs = require("fs");
+
 const http = require("http");
 
 const countries = [
@@ -27,6 +30,8 @@ const { info: { name, hobbies }, contact: { email } } = personInfo;
 
 const server = http.createServer((req, res) => {
 
+    console.log(req.url, req.method);
+
     if (req.url === "/contact") {
 
         res.writeHead(200, { "Content-Type": "text/html" });
@@ -54,11 +59,43 @@ const server = http.createServer((req, res) => {
 
     res.writeHead(200, { "Content-Type": "application/json" });
 
+
     if (country) {
        return res.end(JSON.stringify(country));
      } else {
        return res.end(JSON.stringify({ message: "Country not found" }));
     }
+}
+else if (req.url.startsWith("/rke143") && req.method === "POST") {
+
+    let body = "";
+
+    req.on("data", chunk => {
+        body += chunk.toString();
+    });
+
+   req.on("end", () => {
+
+    console.log("BODY:", body);
+
+    const data = JSON.parse(body);
+
+    console.log("DATA:", data);
+
+    if (data.name === "rke" && data.code === "143") {
+
+        const fileData = fs.readFileSync("nodejs.json", "utf-8");
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        return res.end(fileData);
+
+    } else {
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        return res.end(JSON.stringify({ message: "invalid credentials" }));
+    }
+});
+
 }
 else {
     res.writeHead(200, { "Content-Type": "text/plain" });
@@ -67,6 +104,6 @@ else {
 
 });
 
-server.listen(3000, () => {
-    console.log("Server running on port 3000");
+server.listen(PORT, () => {
+    console.log("Server running on port ${PORT}");
 });
