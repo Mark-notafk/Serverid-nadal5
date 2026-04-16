@@ -1,0 +1,7 @@
+
+[
+  { "id": 1, "name": "Pizza", "ingredients": ["Base","tomato pasta","delete anannas", "cheese"] },
+  { "id": 2, "name": "Shawerma", "ingredients": ["Lavash", "cucumber", "chicken", "special souce"] },
+  { "id": 3, "name": "Carbonara", "ingredients": ["Bacon", "pasta (if possible)"] }
+
+]

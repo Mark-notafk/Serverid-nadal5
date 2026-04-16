@@ -76,8 +76,7 @@ else if (req.url.startsWith("/rke143") && req.method === "POST") {
 
    req.on("end", () => {
 
-    console.log("BODY:", body);
-
+    
     const data = JSON.parse(body);
 
     console.log("DATA:", data);
@@ -97,6 +96,18 @@ else if (req.url.startsWith("/rke143") && req.method === "POST") {
 });
 
 }
+
+else if (req.url === "/random") {
+
+    const data = fs.readFileSync("recipes.json", "utf-8");
+    const recipes = JSON.parse(data);
+
+    const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify(randomRecipe));
+}
+
 else {
     res.writeHead(200, { "Content-Type": "text/plain" });
     res.end("Home page");
@@ -104,6 +115,6 @@ else {
 
 });
 
-server.listen(PORT, () => {
-    console.log("Server running on port ${PORT}");
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
