@@ -107,6 +107,53 @@ else if (req.url === "/random") {
     res.writeHead(200, { "Content-Type": "application/json" });
     return res.end(JSON.stringify(randomRecipe));
 }
+else if (req.url === "/add" && req.method === "POST") {
+
+  let body = "";
+
+  req.on("data", chunk => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+
+    const newRecipe = JSON.parse(body);
+
+    const data = fs.readFileSync("recipes.json", "utf-8");
+    const recipes = JSON.parse(data);
+
+    recipes.push(newRecipe);
+
+    fs.writeFileSync("recipes.json", JSON.stringify(recipes, null, 2));
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify({ message: "Recipe added" }));
+
+  });
+}
+else if (req.url.startsWith("/delete/") && req.method === "DELETE") {
+
+    const id = parseInt(req.url.split("/")[2]);
+
+    const data = fs.readFileSync("recipes.json", "utf-8");
+    let recipes = JSON.parse(data);
+
+    recipes = recipes.filter(recipe => recipe.id !== id);
+
+    fs.writeFileSync("recipes.json", JSON.stringify(recipes, null, 2));
+
+    res.writeHead(200, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify({ message: "Deleted" }));
+}
+
+else if (req.url === "/fullRecipes" && req.method === "GET") {
+
+  const data = fs.readFileSync("recipes.json", "utf-8");
+  const recipes = JSON.parse(data);
+
+  res.writeHead(200, { "Content-Type": "application/json" });
+  return res.end(JSON.stringify(recipes));
+}
 
 else {
     res.writeHead(200, { "Content-Type": "text/plain" });

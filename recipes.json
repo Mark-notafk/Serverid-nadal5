@@ -1,7 +1,38 @@
-
 [
-  { "id": 1, "name": "Pizza", "ingredients": ["Base","tomato pasta","delete anannas", "cheese"] },
-  { "id": 2, "name": "Shawerma", "ingredients": ["Lavash", "cucumber", "chicken", "special souce"] },
-  { "id": 3, "name": "Carbonara", "ingredients": ["Bacon", "pasta (if possible)"] }
-
+  {
+    "id": 1,
+    "name": "Pizza",
+    "ingredients": [
+      "Base",
+      "tomato pasta",
+      "cheese"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Shawerma",
+    "ingredients": [
+      "Lavash",
+      "cucumber",
+      "chicken",
+      "special sauce"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Carbonara",
+    "ingredients": [
+      "Bacon",
+      "pasta"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Soup",
+    "ingredients": [
+      "Water",
+      "Carrot",
+      "Meat"
+    ]
+  }
 ]
