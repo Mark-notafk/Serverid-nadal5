@@ -30,6 +30,10 @@ const { info: { name, hobbies }, contact: { email } } = personInfo;
 
 const server = http.createServer((req, res) => {
 
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
     console.log(req.url, req.method);
 
     if (req.url === "/contact") {

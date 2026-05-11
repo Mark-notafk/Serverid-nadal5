@@ -1,33 +1,26 @@
-const recipeContainer = document.getElementById("recipeContainer");
-const newRecipeBtn = document.getElementById("newRecipeBtn");
-
-const API_URL = "https://serverid-nadal5.onrender.com/random";
-
 async function getRandomRecipe() {
 
-    const response = await fetch(API_URL);
+    const response = await fetch("https://serverid-nadal5.onrender.com/random");
 
     const recipe = await response.json();
 
-    const ingredientsList = recipe.ingredients
-        .map(item => `<li>${item}</li>`)
-        .join("");
+    console.log(recipe);
 
-   recipeContainer.innerHTML = `
-    <h2>${recipe.name}</h2>
+    document.getElementById("recipeContainer").innerHTML = `
+        <h2>${recipe.name}</h2>
 
-    <img src="${recipe.imageURL}" alt="${recipe.name}">
+        <img src="${recipe.imageURL}" width="300">
 
-    <h3>Ingredients:</h3>
+        <h3>Ingredients:</h3>
 
-    <ul>
-        ${ingredientsList}
-    </ul>
-`;
+        <ul>
+            ${recipe.ingredients.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+    `;
 }
 
 getRandomRecipe();
 
-newRecipeBtn.addEventListener("click", () => {
+document.getElementById("newRecipeBtn").addEventListener("click", () => {
     getRandomRecipe();
 });
