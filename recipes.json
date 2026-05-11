@@ -7,7 +7,7 @@
     "tomato pasta",
     "cheese"
   ],
-  "imageURL": "https://images.pexels.com/photos/18932267/pexels-photo-18932267/free-photo-of-ornamental-pumpkins-and-a-plate-with-baked-pastry.jpeg"
+  "imageURL": "https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg"
 },
 
   {
@@ -19,7 +19,7 @@
     "chicken",
     "special sauce"
   ],
-  "imageURL": "https://images.pexels.com/photos/4917092/pexels-photo-4917092.jpeg"
+  "imageURL": "https://images.pexels.com/photos/37322774/pexels-photo-37322774.jpeg"
 },
   {
     "id": 3,
@@ -28,7 +28,7 @@
       "Bacon",
       "pasta"
     ],
-    "imageURL": "https://images.pexels.com/photos/5605535/pexels-photo-5605535.jpeg"
+    "imageURL": "https://images.pexels.com/photos/29039084/pexels-photo-29039084.jpeg"
   },
   {
     "id": 4,
@@ -38,6 +38,6 @@
       "Carrot",
       "Meat"
     ],
-    "imageURL": "https://images.pexels.com/photos/5377574/pexels-photo-5377574.jpeg"
+    "imageURL": "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg"
   }
   ]
