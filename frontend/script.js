@@ -13,17 +13,17 @@ async function getRandomRecipe() {
         .map(item => `<li>${item}</li>`)
         .join("");
 
-    recipeContainer.innerHTML = `
-        <h2>${recipe.name}</h2>
+   recipeContainer.innerHTML = `
+    <h2>${recipe.name}</h2>
 
-        <img src="${recipe.imageURL}" alt="${recipe.name}">
+    <img src="${recipe.imageURL}" alt="${recipe.name}">
 
-        <h3>Ingredients:</h3>
+    <h3>Ingredients:</h3>
 
-        <ul>
-            ${ingredientsList}
-        </ul>
-    `;
+    <ul>
+        ${ingredientsList}
+    </ul>
+`;
 }
 
 getRandomRecipe();
